@@ -3,7 +3,8 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev --turbopack",
-    "start": "next start"
+    "start": "next start",
+    "postinstall": "cd node_modules/bcrypt && npx node-pre-gyp install --fallback-to-build"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

@@ -1,6 +1,9 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
+  safelist: [
+    'animate-spin'
+  ],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -19,14 +22,21 @@ const config: Config = {
         },
       },
     },
+    animation: {
+      spin: "spin 1s linear infinite",
+    },
     keyframes: {
       shimmer: {
         '100%': {
           transform: 'translateX(100%)',
         },
       },
+      spin: {
+        "0%": { transform: "rotate(0deg)" },
+        "100%": { transform: "rotate(360deg)" },
+      },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/forms'), require("tailwindcss-animate")],
 };
 export default config;
